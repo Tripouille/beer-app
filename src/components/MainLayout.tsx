@@ -9,7 +9,7 @@ export const MainLayout = ({ children }: PropsWithChildren) => {
     <MainLayoutContainer>
       <header>
         <h1>
-          <Link href={ROUTES.HOME()}>Punk App 🍺</Link>
+          <Link href={ROUTES.HOME()}>Beer App 🍺</Link>
         </h1>
       </header>
       {children}
