@@ -8,6 +8,7 @@ import { ROUTES } from "@/utils/routes";
 import Link from "next/link";
 import { ChangeEventHandler, useState } from "react";
 import { useDebounce } from "use-debounce";
+import { Button } from "./Button";
 
 const SEARCH_DEBOUNCE_TIME_MS = 500;
 const SEARCH_INPUT_ID = "beers-search-input";
@@ -37,6 +38,7 @@ export const BeerList = ({ searchTerms }: BeerListProps) => {
     data: beers,
     isLoading,
     isError,
+    refetch,
   } = useBeersQuery({ per_page: "10", beer_name: searchTerms });
 
   if (isLoading)
@@ -47,7 +49,12 @@ export const BeerList = ({ searchTerms }: BeerListProps) => {
         <BeerListItemSkeleton />
       </BeerListContainer>
     );
-  if (isError) return null;
+  if (isError)
+    return (
+      <Button type="button" data-testid="error-state" onClick={() => refetch()}>
+        Retry
+      </Button>
+    );
 
   return (
     <BeerListContainer data-testid="search-results">
