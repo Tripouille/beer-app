@@ -6,28 +6,35 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "vitest",
+    "test:run": "vitest run --coverage"
   },
   "dependencies": {
     "@stitches/react": "1.2.8",
     "@tanstack/react-query": "4.29.1",
     "@tanstack/react-query-devtools": "4.29.1",
+    "@testing-library/react": "14.0.0",
     "@total-typescript/ts-reset": "0.4.2",
     "@types/node": "18.15.11",
     "@types/react": "18.0.34",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "5.57.1",
     "@typescript-eslint/parser": "5.57.1",
+    "@vitejs/plugin-react": "3.1.0",
+    "@vitest/coverage-c8": "0.30.0",
     "eslint": "8.38.0",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
+    "happy-dom": "9.1.9",
     "nanoid": "4.0.2",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4",
+    "vitest": "0.30.0",
     "zod": "3.21.4"
   }
 }
