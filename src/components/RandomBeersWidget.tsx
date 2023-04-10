@@ -40,7 +40,8 @@ export const RandomBeerCard = () => {
     isError,
   } = useRandomBeerQuery(randomBeerID, { refetchInterval: 10000 });
 
-  if (isLoading) return null;
+  if (isLoading)
+    return <BeerCardSkeleton aria-busy="true" data-testid="loading-state" />;
   if (isError) return null;
 
   return (
