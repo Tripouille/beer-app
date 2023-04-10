@@ -4,7 +4,7 @@ import { RandomBeersWidget } from "./RandomBeersWidget";
 import { AppRepositories } from "@/providers/AppRepositoriesProvider";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { QueryClient } from "@tanstack/react-query";
-import { Beer, BeerID } from "@/domain/beersRepository";
+import { Beer, BeerID, beerSchema } from "@/domain/beersRepository";
 
 type GetRamdomBeer = AppRepositories["beersRepository"]["getRandomBeer"];
 
@@ -49,6 +49,26 @@ describe(RandomBeersWidget.name, () => {
     await component.findAllByTestId("loading-state");
 
     expect(getRandomBeer).toBeCalledTimes(2);
+  });
+
+  it("shows 2 random beers", async () => {
+    let id = 0;
+    const getRandomBeer = vi.fn().mockImplementation(async () => {
+      id++;
+      return beerSchema.parse({
+        id,
+        name: "name_" + id,
+        description: "description_" + id,
+        image_url: "/image_url_" + id,
+        first_brewed: "first_brewed_" + id,
+      });
+    });
+
+    const component = mount(getRandomBeer);
+    await component.findByText("name_1");
+    await component.findByText("name_2");
+
+    expect(component.container).toMatchSnapshot();
   });
 
   it("shows 2 loading beers", async () => {

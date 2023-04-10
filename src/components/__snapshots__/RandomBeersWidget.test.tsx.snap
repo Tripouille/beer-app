@@ -47,3 +47,48 @@ exports[`RandomBeersWidget > shows 2 loading beers 1`] = `
   </aside>
 </div>
 `;
+
+exports[`RandomBeersWidget > shows 2 random beers 1`] = `
+<div>
+  <aside
+    class="c-hTSGOD"
+  >
+    <article
+      class="c-hJXEtQ"
+    >
+      <a
+        href="/beers/1"
+      >
+        <img
+          alt="name_1"
+          src="/image_url_1"
+        />
+        <h2>
+          name_1
+        </h2>
+        <time>
+          first_brewed_1
+        </time>
+      </a>
+    </article>
+    <article
+      class="c-hJXEtQ"
+    >
+      <a
+        href="/beers/2"
+      >
+        <img
+          alt="name_2"
+          src="/image_url_2"
+        />
+        <h2>
+          name_2
+        </h2>
+        <time>
+          first_brewed_2
+        </time>
+      </a>
+    </article>
+  </aside>
+</div>
+`;
