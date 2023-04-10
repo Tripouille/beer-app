@@ -1,6 +1,7 @@
 "use client";
 
 import { Beer } from "@/domain/beersRepository";
+import { twinkleAnimation } from "@/styles/animations";
 import { styled, theme } from "@/styles/config";
 import { useBeersQuery } from "@/use-cases/useBeersQuery";
 import { ROUTES } from "@/utils/routes";
@@ -38,7 +39,14 @@ export const BeerList = ({ searchTerms }: BeerListProps) => {
     isError,
   } = useBeersQuery({ per_page: "10", beer_name: searchTerms });
 
-  if (isLoading) return null;
+  if (isLoading)
+    return (
+      <BeerListContainer aria-busy="true" data-testid="loading-state">
+        <BeerListItemSkeleton />
+        <BeerListItemSkeleton />
+        <BeerListItemSkeleton />
+      </BeerListContainer>
+    );
   if (isError) return null;
 
   return (
@@ -61,6 +69,15 @@ const BeerListItem = ({ id, name, first_brewed }: BeerListItemProps) => {
     </li>
   );
 };
+const BeerListItemSkeleton = styled("li", {
+  height: "var(--beer-list-item-min-height)",
+  borderRadius: "var(--beer-list-item-border-radius)",
+  background: theme.colors.neutral400,
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${twinkleAnimation} 1s linear infinite alternate`,
+  },
+});
 const BeerListContainer = styled("ul", {
   "--beer-list-item-min-height": "2.5em",
   "--beer-list-item-border-radius": theme.radius.sm,
