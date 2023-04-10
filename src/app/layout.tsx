@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/MainLayout";
+import { ServerStyleSheet } from "@/components/ServerStyleSheet";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MainLayout>{children}</MainLayout>
+        <ServerStyleSheet>
+          <MainLayout>{children}</MainLayout>
+        </ServerStyleSheet>
       </body>
     </html>
   );
