@@ -28,6 +28,11 @@ export const BeersSearchForm = () => {
 };
 const BeersSearchFormContainer = styled("form", {
   width: "100%",
+  button: {
+    margin: `${theme.spaces.sm} auto`,
+    display: "block",
+    color: theme.colors.identity500,
+  },
 });
 
 interface BeerListProps {
