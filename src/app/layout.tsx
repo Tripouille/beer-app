@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/MainLayout";
 import { ServerStyleSheet } from "@/components/ServerStyleSheet";
+import { QueryProvider } from "@/providers/QueryProvider";
 import { createMetadata } from "@/utils/createMetadata";
 import { Quicksand } from "next/font/google";
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={quicksand.className}>
-        <ServerStyleSheet>
-          <MainLayout>{children}</MainLayout>
-        </ServerStyleSheet>
+        <QueryProvider>
+          <ServerStyleSheet>
+            <MainLayout>{children}</MainLayout>
+          </ServerStyleSheet>
+        </QueryProvider>
       </body>
     </html>
   );
