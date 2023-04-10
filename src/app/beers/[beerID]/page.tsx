@@ -3,7 +3,7 @@ import { beerIDSchema, realBeersRepository } from "@/domain/beersRepository";
 import { createMetadata } from "@/utils/createMetadata";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { Product, WithContext } from "schema-dts";
+import { Article, WithContext } from "schema-dts";
 
 interface BeerDetailsPageProps {
   params: {
@@ -27,13 +27,15 @@ export async function generateMetadata({ params }: BeerDetailsPageProps) {
   }
 }
 
-export default async function BeerDetailsPage({ params }: BeerDetailsPageProps) {
+export default async function BeerDetailsPage({
+  params,
+}: BeerDetailsPageProps) {
   const beerID = beerIDSchema.safeParse(+params.beerID);
   if (!beerID.success) notFound();
   const beer = await realBeersRepository.getBeer(beerID.data).catch(notFound);
-  const jsonLD: WithContext<Product> = {
+  const jsonLD: WithContext<Article> = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Article",
     name: beer.name,
     description: beer.description,
     image: beer.image_url ? [beer.image_url] : [],
