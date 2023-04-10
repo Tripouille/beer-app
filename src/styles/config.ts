@@ -1,5 +1,9 @@
 import { createStitches } from "@stitches/react";
 
+export const BREAKPOINT = {
+  sm: "(min-width: 425px)",
+} as const;
+
 export const { styled, css, theme, getCssText } = createStitches({
   theme: {
     colors: {
