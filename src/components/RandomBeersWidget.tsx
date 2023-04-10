@@ -6,7 +6,11 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import Link from "next/link";
 import { ROUTES } from "@/utils/routes";
-import { leftSlideAnimation, rightSlideAnimation } from "@/styles/animations";
+import {
+  leftSlideAnimation,
+  rightSlideAnimation,
+  twinkleAnimation,
+} from "@/styles/animations";
 import getBeerImageSrc from "@/domain/beersUtils";
 
 export const RandomBeersWidget = () => {
@@ -106,5 +110,16 @@ const BeerCard = styled("article", {
   time: {
     gridArea: "first_brewed",
     placeSelf: "start",
+  },
+});
+
+const BeerCardSkeleton = styled("div", {
+  width: "var(--beer-card-min-width)",
+  height: "var(--beer-card-min-height)",
+  borderRadius: "var(--beer-card-border-radius)",
+  background: theme.colors.neutral400,
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${twinkleAnimation} 1s linear infinite alternate`,
   },
 });
