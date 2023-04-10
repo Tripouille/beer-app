@@ -124,3 +124,13 @@ const BeerCardSkeleton = styled("div", {
     animation: `${twinkleAnimation} 1s linear infinite alternate`,
   },
 });
+
+const BeerCardErrorState = styled("div", {
+  width: "var(--beer-card-min-width)",
+  height: "var(--beer-card-min-height)",
+  border: `2px solid ${theme.colors.negative500}`,
+  borderRadius: "var(--beer-card-border-radius)",
+  background: theme.colors.negative100,
+  display: "grid",
+  placeItems: "center",
+});
