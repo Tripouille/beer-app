@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RandomBeersWidget > shows 2 error messages 1`] = `
+<div>
+  <aside
+    class="c-hTSGOD"
+  >
+    <div
+      class="c-bQpehp"
+      data-testid="error-state"
+    >
+      <button
+        class="c-eqmden"
+      >
+        Retry
+      </button>
+    </div>
+    <div
+      class="c-bQpehp"
+      data-testid="error-state"
+    >
+      <button
+        class="c-eqmden"
+      >
+        Retry
+      </button>
+    </div>
+  </aside>
+</div>
+`;
+
+exports[`RandomBeersWidget > shows 2 loading beers 1`] = `
+<div>
+  <aside
+    class="c-hTSGOD"
+  >
+    <div
+      aria-busy="true"
+      class="c-catuKv"
+      data-testid="loading-state"
+    />
+    <div
+      aria-busy="true"
+      class="c-catuKv"
+      data-testid="loading-state"
+    />
+  </aside>
+</div>
+`;
