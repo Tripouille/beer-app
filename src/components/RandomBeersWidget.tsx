@@ -12,6 +12,7 @@ import {
   twinkleAnimation,
 } from "@/styles/animations";
 import getBeerImageSrc from "@/domain/beersUtils";
+import { Button } from "./Button";
 
 export const RandomBeersWidget = () => {
   return (
@@ -38,11 +39,17 @@ export const RandomBeerCard = () => {
     data: beer,
     isLoading,
     isError,
+    refetch,
   } = useRandomBeerQuery(randomBeerID, { refetchInterval: 10000 });
 
   if (isLoading)
     return <BeerCardSkeleton aria-busy="true" data-testid="loading-state" />;
-  if (isError) return null;
+  if (isError)
+    return (
+      <BeerCardErrorState data-testid="error-state">
+        <Button onClick={() => refetch()}>Retry</Button>
+      </BeerCardErrorState>
+    );
 
   return (
     <BeerCard key={beer.id}>
