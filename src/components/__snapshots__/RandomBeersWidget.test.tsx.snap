@@ -54,7 +54,7 @@ exports[`RandomBeersWidget > shows 2 random beers 1`] = `
     class="c-hTSGOD"
   >
     <article
-      class="c-hJXEtQ"
+      class="c-CVkVn"
     >
       <a
         href="/beers/1"
@@ -72,7 +72,7 @@ exports[`RandomBeersWidget > shows 2 random beers 1`] = `
       </a>
     </article>
     <article
-      class="c-hJXEtQ"
+      class="c-CVkVn"
     >
       <a
         href="/beers/2"
