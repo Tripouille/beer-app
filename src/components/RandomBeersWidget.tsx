@@ -81,7 +81,7 @@ const BeerCard = styled("article", {
     height: "100%",
     display: "grid",
     gridTemplateAreas: `'image title'
-                        'image first_brewed'`,
+    'image first_brewed'`,
     gridTemplateColumns: "2em 1fr",
     placeItems: "center",
     width: "var(--beer-card-min-width)",
@@ -94,7 +94,7 @@ const BeerCard = styled("article", {
     textDecoration: "none",
     transition: "transform 0.1s ease-in-out",
 
-    "&:hover": {
+    "&:hover, &:focus-visible": {
       background: theme.colors.neutral100,
     },
   },
