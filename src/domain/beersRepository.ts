@@ -1,4 +1,5 @@
 import { fetcher, FetcherSearchParams } from "@/utils/fetcher";
+import { removeEmptyStringFromObject } from "@/utils/removeEmptyStringFromObject";
 import { z } from "zod";
 
 export const beerIDSchema = z.number().brand("beerID");
@@ -36,7 +37,7 @@ export const realBeersRepository: BeersRepository = {
   async getBeers(params) {
     const response = await fetcher({
       url: "https://api.punkapi.com/v2/beers",
-      searchParams: params,
+      searchParams: removeEmptyStringFromObject(params),
     });
     const beers = (await response.json()) as Beer[];
     return beersSchema.parse(beers);
