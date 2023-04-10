@@ -17,8 +17,12 @@ export const BeersSearchForm = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [debounceSearchTerm] = useDebounce(searchTerm, SEARCH_DEBOUNCE_TIME_MS);
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
-    <BeersSearchFormContainer>
+    <BeersSearchFormContainer onSubmit={handleSubmit}>
       <SearchBar id={SEARCH_INPUT_ID} onSearch={setSearchTerm} />
       <output htmlFor={SEARCH_INPUT_ID}>
         <BeerList searchTerms={debounceSearchTerm} />
