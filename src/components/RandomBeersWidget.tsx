@@ -12,6 +12,7 @@ import {
   twinkleAnimation,
 } from "@/styles/animations";
 import getBeerImageSrc from "@/domain/beersUtils";
+import { Button } from "./Button";
 
 export const RandomBeersWidget = () => {
   return (
@@ -38,11 +39,17 @@ export const RandomBeerCard = () => {
     data: beer,
     isLoading,
     isError,
+    refetch,
   } = useRandomBeerQuery(randomBeerID, { refetchInterval: 10000 });
 
   if (isLoading)
     return <BeerCardSkeleton aria-busy="true" data-testid="loading-state" />;
-  if (isError) return null;
+  if (isError)
+    return (
+      <BeerCardErrorState data-testid="error-state">
+        <Button onClick={() => refetch()}>Retry</Button>
+      </BeerCardErrorState>
+    );
 
   return (
     <BeerCard key={beer.id}>
@@ -123,4 +130,14 @@ const BeerCardSkeleton = styled("div", {
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${twinkleAnimation} 1s linear infinite alternate`,
   },
+});
+
+const BeerCardErrorState = styled("div", {
+  width: "var(--beer-card-min-width)",
+  height: "var(--beer-card-min-height)",
+  border: `2px solid ${theme.colors.negative500}`,
+  borderRadius: "var(--beer-card-border-radius)",
+  background: theme.colors.negative100,
+  display: "grid",
+  placeItems: "center",
 });
