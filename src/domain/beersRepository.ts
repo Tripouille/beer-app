@@ -24,6 +24,7 @@ export interface GetBeersParams extends FetcherSearchParams {
 export interface BeersRepository {
   getRandomBeer(): Promise<Beer>;
   getBeers(params: GetBeersParams): Promise<Beer[]>;
+  getBeer(id: BeerID): Promise<Beer>;
 }
 
 export const realBeersRepository: BeersRepository = {
@@ -41,5 +42,12 @@ export const realBeersRepository: BeersRepository = {
     });
     const beers = (await response.json()) as Beer[];
     return beersSchema.parse(beers);
+  },
+  async getBeer(id) {
+    const response = await fetcher({
+      url: `https://api.punkapi.com/v2/beers/${id}`,
+    });
+    const data = (await response.json()) as Beer[];
+    return beerSchema.parse(data[0]);
   },
 };
