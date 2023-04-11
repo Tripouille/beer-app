@@ -44,4 +44,8 @@ const MainLayoutContainer = styled("main", {
       color: theme.colors.identity700,
     },
   },
+
+  "input[type='search']::-webkit-search-decoration": {
+    "-webkit-appearance": "none",
+  },
 });
