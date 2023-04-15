@@ -3,14 +3,14 @@
 exports[`RandomBeersWidget > shows 2 error messages 1`] = `
 <div>
   <aside
-    class="c-hTSGOD"
+    class="c-eUtcZH"
   >
     <div
       class="c-bQpehp"
       data-testid="error-state"
     >
       <button
-        class="c-eqmden"
+        class="c-cFSFMZ"
       >
         Retry
       </button>
@@ -20,7 +20,7 @@ exports[`RandomBeersWidget > shows 2 error messages 1`] = `
       data-testid="error-state"
     >
       <button
-        class="c-eqmden"
+        class="c-cFSFMZ"
       >
         Retry
       </button>
@@ -32,7 +32,7 @@ exports[`RandomBeersWidget > shows 2 error messages 1`] = `
 exports[`RandomBeersWidget > shows 2 loading beers 1`] = `
 <div>
   <aside
-    class="c-hTSGOD"
+    class="c-eUtcZH"
   >
     <div
       aria-busy="true"
@@ -51,10 +51,10 @@ exports[`RandomBeersWidget > shows 2 loading beers 1`] = `
 exports[`RandomBeersWidget > shows 2 random beers 1`] = `
 <div>
   <aside
-    class="c-hTSGOD"
+    class="c-eUtcZH"
   >
     <article
-      class="c-CVkVn"
+      class="c-gerKdD"
     >
       <a
         href="/beers/1"
@@ -72,7 +72,7 @@ exports[`RandomBeersWidget > shows 2 random beers 1`] = `
       </a>
     </article>
     <article
-      class="c-CVkVn"
+      class="c-gerKdD"
     >
       <a
         href="/beers/2"
