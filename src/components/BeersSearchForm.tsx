@@ -22,7 +22,7 @@ export const BeersSearchForm = () => {
   }
 
   return (
-    <BeersSearchFormContainer onSubmit={handleSubmit}>
+    <BeersSearchFormContainer onSubmit={handleSubmit} role="search">
       <SearchBar id={SEARCH_INPUT_ID} onSearch={setSearchTerm} />
       <output htmlFor={SEARCH_INPUT_ID}>
         <BeerList searchTerms={debounceSearchTerm} />
@@ -139,8 +139,8 @@ const SearchBar = ({ id, onSearch }: SearchBarProps) => {
   };
 
   return (
-    <SearchBarContainer aria-label="search" role="search">
-      <MagnifySVG />
+    <SearchBarContainer aria-label="search beers">
+      <MagnifySVG aria-hidden />
       <input
         id={id}
         type="search"
